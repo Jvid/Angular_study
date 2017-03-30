@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Animate-ngIf</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.odiv{
+			width: 600px;
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			background: cyan;
+		}
+		.odiv.ng-enter,.odiv.ng-leave{
+			transition: all linear .5s;
+		}
+		.odiv.ng-enter.ng-enter-active,.odiv.ng-leave{
+			margin-left: 0;
+			opacity: 1;
+		}
+		.odiv.ng-enter,.odiv.ng-leave.ng-leave-active{
+			margin-left: -700px;
+			opacity: 0;
+		}
+		input{
+			margin-top: 10px; 
+		}
+	</style>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="../../node_modules/angular-animate/angular-animate.js"></script>
+</head>
+<body>
+	
+	<div ng-if="param" class="odiv">I am a test for ng-if(enter/leave)</div>
+	<input type="button" value="按钮" ng-click="toggle()">
+</body>
+<script type="text/javascript">
+	angular.module('myApp',['ngAnimate'])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.param = true;	
+		$scope.toggle = function(){
+			$scope.param = !$scope.param;
+		}
+	}])
+</script>
+</html>

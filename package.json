@@ -1,0 +1,25 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jvid/Angular_study.git"
+  },
+  "author": "jvid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jvid/Angular_study/issues"
+  },
+  "homepage": "https://github.com/Jvid/Angular_study#readme",
+  "devDependencies": {
+    "angular": "^1.6.3",
+    "angular-animate": "^1.6.3",
+    "bootstrap": "^3.3.7",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}

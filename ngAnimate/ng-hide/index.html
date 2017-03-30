@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>ngAnimate</title>
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<style>
+		.tog.ng-hide-add, .tog.ng-hide-remove {
+		  -webkit-transition:all linear 0.5s;
+		  -moz-transition:all linear 0.5s;
+		  -o-transition:all linear 0.5s;
+		  transition:all linear 0.5s;
+		}
+
+		.tog.ng-hide-add.ng-hide-add-active,
+		.tog.ng-hide-remove {
+		  opacity:0;
+		}
+
+		.tog.ng-hide-add,
+		.tog.ng-hide-remove.ng-hide-remove-active {
+		  opacity:1;
+		}
+	</style>
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="../node_modules/angular-animate/angular-animate.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<input type="button" class="btn btn-default btn-primary" value="按钮" ng-click="tog = !tog">
+	<h1 ng-show="tog" class="text-primary tog">Hello World</h1>
+</div>
+</body>
+<script type="text/javascript">
+	angular.module('myApp',['ngAnimate'])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.tog = true;
+	}])
+</script>
+</html>
