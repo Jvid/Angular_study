@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-repeat</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 300px;
+			margin: 30px auto;
+		}
+		input{
+			outline: none;
+			width: 300px;
+			height: 30px;
+			line-height: 30px;
+			box-sizing: border-box;
+		}
+		ul{
+			margin-top: 5px;
+		}
+		li{
+			height: 40px;
+			line-height: 30px;
+			height: 30px;
+			background: cyan;
+			width: 300px;
+			list-style: none;
+			/*text-indent: 30px;*/
+			border-bottom:1px dashed gray;
+			cursor: pointer;
+			/*transition: all linear .5s;*/
+		}
+		li span:nth-of-type(1){
+			margin-left: 30px;
+		}
+		li span:nth-of-type(2){
+			float: right;
+			margin-right: 30px;
+			color: red;
+		}
+		li span:nth-of-type(2):hover{
+			text-decoration: underline;
+		}
+		li:hover{
+			background: yellowgreen;
+		}
+		/*
+  我们使用CSS过渡(transition)语句来为带有.book类的元素添加动画效果，他们将在各个条目新增和移动时触发。
+*/
+.book.ng-enter, .book.ng-move {
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity:0;
+  height: 0
+}
+
+/*
+ 用ng-enter-active和ng-move-active类来定义过渡效果的最终属性值，以便动画指令知道它最终该达到什么状态。
+*/
+.book.ng-enter.ng-enter-active,
+.book.ng-move.ng-move-active {
+	height: 30px;
+ 	opacity:1;
+}
+
+/*
+  我们使用CSS关键帧(keyframe animation)语句来为带有.book类的元素定义移除动画(ng-leave)
+*/
+.book.ng-leave {
+  -webkit-animation:0.5s my_animation;
+  -moz-animation:0.5s my_animation;
+  -o-animation:0.5s my_animation;
+  animation:0.5s my_animation;
+}
+
+@keyframes my_animation {
+  from { opacity:1; 
+	height: 30px;
+  }
+  to { opacity:0; 
+	height: 0;
+  }
+}
+
+/*
+  不幸的是，每个浏览器都需要用它自己的“方言”来定义关键帧动画
+*/
+@-webkit-keyframes my_animation {
+  from { opacity:1; 
+	height: 30px;
+  }
+  to { opacity:0; 
+	height: 0;
+  }
+}
+
+@-moz-keyframes my_animation {
+  from { opacity:1; 
+	height: 30px;
+  }
+  to { opacity:0; 
+	height: 0;
+  }
+}
+
+@-o-keyframes my_animation {
+  from { opacity:1; 
+	height: 30px;
+  }
+  to { opacity:0; 
+	height: 0;
+  }
+}
+	</style>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="../../node_modules/angular-animate/angular-animate.js"></script>
+</head>
+<body>
+	<div id="box">
+		<input type="text" ng-model="search">
+		<ul>
+			<li ng-repeat="book in books | filter:search track by $index" class="book">
+				<span ng-bind="book"></span>
+				<span ng-click="deleteData($index)">删除</span>
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	angular.module('myApp',['ngAnimate'])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.search = "";
+		$scope.books = [
+			"Angular",
+			"Vue",
+			"React Native",
+			"React",
+			"Javascript",
+			"HTML",
+			"CSS",
+			"NodeJs",
+			"PHP",
+			"Phyon",
+			"Java"
+		]
+		$scope.deleteData = function(n){
+			$scope.books.splice(n,1)
+		}
+	}])
+</script>
+</html>

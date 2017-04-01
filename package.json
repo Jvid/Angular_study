@@ -19,6 +19,7 @@
   "devDependencies": {
     "angular": "^1.6.3",
     "angular-animate": "^1.6.3",
+    "angular-route": "^1.6.4",
     "bootstrap": "^3.3.7",
     "less-plugin-clean-css": "^1.5.1"
   }

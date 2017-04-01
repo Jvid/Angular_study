@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0
+		}
+		.css-class-add, .css-class-remove {
+		  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+		  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+		  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+		  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+		}
+
+		.css-class,
+		.css-class-add.css-class-add-active {
+		  color: red;
+		  font-size:3em;
+		}
+
+		.css-class-remove.css-class-remove-active {
+		  font-size:1.0em;
+		  color:black;
+		}
+	</style>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="../../node_modules/angular-animate/angular-animate.js"></script>
+</head>
+<body>
+	<p>
+      <input type="button" value="设置" ng-click="myCssVar='css-class'">
+      <input type="button" value="清除" ng-click="myCssVar=''">
+      <br>
+      <span ng-class="myCssVar">CSS-动画文本</span>
+    </p>
+</body>
+<script type="text/javascript">
+	angular.module("myApp",[])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.tog = true;
+		$scope.$watch('tog',function(newValue,oldValue,$scope){
+			console.log(newValue);
+
+			$scope.myClass = newValue ? 'show' : '';
+		})
+		
+	}])
+</script>
+</html>

@@ -1,0 +1,7 @@
+a {
+  width: 200px;
+}
+a span {
+  color: green;
+  display: block;
+}
