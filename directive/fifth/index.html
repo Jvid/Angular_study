@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>相同控制器同一模板使用不同参数值</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<my-customer info="a"></my-customer>
+	<hr>
+	<my-customer info="b"></my-customer>
+</body>
+</html>

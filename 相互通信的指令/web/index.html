@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="docsTabsExample">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<my-tabs>
+		<my-pane title="Hello">
+			<h5 id="创建自定义指令_source_hello">Hello</h5>
+			<p>Lorem ip sum dolor sit amet</p>
+		</my-pane>
+		<my-pane title="World">
+			<h5 id="创建自定义指令_source_world">World</h5>
+			<em>Mauris elementum elementum enim at suscipit.</em>
+			<p><a href ng-click="i = i + 1">counter:{{i}}</a></p>
+		</my-pane>
+	</my-tabs>
+</body>
+</html>
+<!-- 
+link 和 controller之间的区别， 最基本的区别就是 控制器可以导出一个API， 而子指令的link函数可以通过require来与这个API交互。
+第四个参数
+通过这个参数就可以调用父指令的方法了
+ -->

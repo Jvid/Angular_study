@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>不同控制器传值并结合指令</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<button ng-click="broad()">broadcast</button>
+	<div ng-controller="firstCtrl">
+		<my-customer></my-customer>
+		<h1 ng-bind="emitData"></h1>	
+	</div>
+	<div ng-controller="secondCtrl">
+		<my-customer></my-customer>
+		<button ng-click="emitfn()">emit</button>
+	</div>
+</body>
+</html>
