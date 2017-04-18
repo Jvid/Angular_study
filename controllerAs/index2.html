@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="index2.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl as p">
+		<input type="text" ng-model="p.msg">
+		<p>p.msg----->{{p.msg}}</p>
+		<!-- 父级访问不到子级的信息 -->
+		<p>c.msg----->{{c.msg}}</p>
+		<!-- emit方法访问 -->
+		<p>emit -- c.msg ----->{{p.msgc}}</p>
+		<hr>
+		<div ng-controller="childCtrl as c">
+			<input type="text" ng-model="c.msg" ng-keyup="c.emitFn(c.msg)">
+			<p>c.msg----->{{c.msg}}</p>
+			<p>p.msg----->{{p.msg}}</p>
+		</div>
+	</div>
+</body>
+</html>

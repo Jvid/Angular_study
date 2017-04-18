@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+</head>
+<body>
+	<div ng-app>
+	  <h1>这个绑定是一次性绑定Binding {{ ::message }}</h1>
+	  <input type="text" ng-model="message" ng-init="message = 'hello'">
+	  <p>{{ message }}</p>
+	  <p>{{ message + message}}</p>
+	  <p>{{ message === 'hello'}}</p>
+	  <p>{{ 1 + 2 }}</p>
+	</div>
+</body>
+</html>
