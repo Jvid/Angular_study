@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" id="ng-app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl as n">
+		<input type="text" ng-model="n.sc">
+		<ul>
+			<li ng-repeat="item in n.items | capitalSearch:n.sc track by $index" ng-bind="item"></li>
+		</ul>
+	</div>
+</body>
+</html>
