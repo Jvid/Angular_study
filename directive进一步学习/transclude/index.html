@@ -7,9 +7,12 @@
 	<script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-	<div ng-controller="myCtrl as dir">
-		<welcome></welcome>
-		<p>{{testNum}}</p>
+	<div ng-controller="myCtrl as tran">
+		<welcome>
+			<button ng-click="alertfn()">button</button>
+		</welcome>
+		<p>{{tran.test}}</p>
+		<p>{{rotTest}}</p>
 	</div>
 </body>
 </html>

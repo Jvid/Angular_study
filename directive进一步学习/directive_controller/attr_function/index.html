@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" id="ng-app">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义指令将函数放入指令的属性中</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0
+		}
+		.wrap{
+			width: 800px;
+			margin: 30px auto;
+			border:1px solid brown;
+		}
+		.m{
+			width: 150px;
+			height: 80px;
+			background: cyan;
+			color:#2b2b2b;
+		}
+	</style>
+	<script type="text/javascript" src="../../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl as attrfn" class="wrap">
+		<h1>指令从属性中取得控制器中的方法</h1>
+		<p>鼠标进入的时候执行控制器中的enterfn函数，在控制器中打印“I am comming”，鼠标离开时候执行控制器中的leavefn函数，在控制器中打印“I have leaved”</p>
+		<div class="m" entering="attrfn.enterfn()" leaving="attrfn.leavefn()">鼠标活动区</div>
+	</div>
+</body>
+</html>

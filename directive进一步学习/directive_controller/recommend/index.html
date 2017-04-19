@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" id="ng-app">
+<head>
+	<meta charset="UTF-8">
+	<title>指令和控制器之间通信</title>
+	<script type="text/javascript" src="../../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl as talk">
+		<h1>指令与控制器之间的通信</h1>
+		<p>点击按钮调用controller中的弹窗方法,并且修改controller中定义的变量值</p>
+		<p>{{talk.testNum}}</p>
+		<button click-button>button</button>
+	</div>
+</body>
+</html>

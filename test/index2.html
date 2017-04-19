@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl">
+		<p>{{test}}</p>
+		<hr>
+		<p>{{num}}</p>
+		<hr>
+		<p>{{str}}</p>
+	</div>
+</body>
+<script type="text/javascript">
+	angular.module("myApp",[])
+	.controller('myCtrl', ['$scope','$timeout','$interval', function($scope,$timeout,$interval){
+		$scope.test = "jvid";
+		$scope.num = timeFormat(new Date());
+		$scope.str = "变化之前"
+		function timeFormat(a) {
+			return a.getHours()+':'+(a.getMinutes() < 10 ? '0'+a.getMinutes() : a.getMinutes())+':'+(a.getSeconds() < 10 ? '0'+a.getSeconds():a.getSeconds());
+		}
+		$timeout(function(){
+			$scope.test = "jingduo"
+		},3000);
+		$interval(function(){
+			$scope.num = timeFormat(new Date());
+		},1000)
+
+		setTimeout(function(){
+			$scope.str = "变化之后"
+		},2000)
+	}])
+</script>
+</html>

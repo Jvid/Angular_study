@@ -7,9 +7,10 @@
 	<script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-	<div ng-controller="myCtrl as dir">
-		<welcome></welcome>
-		<p>{{testNum}}</p>
+	<div ng-controller="myCtrl as com">
+		<h1>给指令创建controller，并在下面的指令中应用</h1>
+		<welcome hello hi></welcome>
+		<welcome hello></welcome>
 	</div>
 </body>
 </html>
