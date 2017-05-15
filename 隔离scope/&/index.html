@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<h2>1.不传参数调用父级的方法</h2>
+	<button ng-click="clickfn()">father-button</button>
+	<p>下面是自定义指令创建的</p>
+	<my-put clickfn="clickfn()"></my-put>
+
+	<h2>2.传参数的调用父级的方法</h2>
+	<input type="text" ng-model="name"><br>
+	<button ng-click="paramClick(name)">father-button</button>
+	<p>下面是自定义指令的创建</p>
+	<my-param p="paramClick(a)" c="{{name}}"></my-param>	
+</body>
+<script type="text/javascript">
+	angular.module('myApp',[])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.clickfn = function(){
+			alert('Hello')
+		}
+		$scope.name = "jvid"
+		$scope.paramClick = function(str){
+			alert('Hello '+str)
+		}
+	}])
+	.directive('myPut',function(){
+		return{
+			restrict:'E',
+			scope:{
+				clickfn:"&"
+			},
+			template:'<button ng-click="clickfn()">child-button</button>'
+		}
+	})
+	.directive('myParam',function(){
+		return{
+	        'restrict':'E',  
+	        scope:{  
+	            p:"&",
+	            c:'@'
+	        },  
+	        template:'<div >    <input type="text"  ng-model="c" /><br> <button ng-click="p({a:c})">child-button</button></div>'  
+	          
+	    }
+	})
+</script>
+</html>

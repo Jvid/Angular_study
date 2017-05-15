@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<input type="text" ng-model="name">
+	<p>下面的是自定义指令的内容 @ 建立与父级的单项绑定自己可以访问父级的值 绑定的是一个字符串</p>
+	<my-put name="{{name}}"></my-put>
+</body>
+<script type="text/javascript">
+	angular.module('myApp',[])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.name = "jvid"
+	}])
+	.directive('myPut',function(){
+		return{
+			restrict:'E',
+			scope:{
+				name:"@"
+			},
+			template:'<input type="text" ng-model="name">'
+		}
+	})
+</script>
+</html>
