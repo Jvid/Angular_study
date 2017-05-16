@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<h1>看一下自定义指令中的attr都有什么</h1>
+	<input type="text" ng-model="name"><br>
+	<my-dir age="name"></my-dir>
+</body>
+<script type="text/javascript">
+	angular.module('myApp',[])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.name = "jvid"
+	}])
+	.directive('myDir',function(){
+		return{
+			restrict:'E',
+			scope:{
+				age:'='
+			},
+			template:`<div><p>This is the directive content</p><input type="text" ng-model="age"></div>`,
+			link:function(sc,ele,attr,ctrls){
+				sc.age = "jingduo"
+			}
+		}
+	})
+</script>
+</html>

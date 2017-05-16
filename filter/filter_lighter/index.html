@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" id="ng-app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0
+		}
+		.ui-match{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl">
+		<input type="text" ng-model="sc">
+		<ul> 
+			<li ng-repeat="item in items track by $index" ng-bind-html="item | highlight:sc:true"></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<!-- <base href="./"> -->
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="../node_modules/angular-route/angular-route.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<ul>
+		<li ng-repeat="item in books">
+			<a href="#/books/{{item.name}}/{{item.page}}">{{item.name}} has {{item.page}} pages</a>
+		</li>
+	</ul>
+	<div ng-view></div>
+</body>
+<script type="text/javascript">
+	var app = angular.module('myApp',['ngRoute'])
+	.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
+		$locationProvider.hashPrefix('');
+		$routeProvider
+		// .whem('',{templateUrl:'index.html',controller:'indexCtrl'})
+		.when('/books/:bookid/:pages',{templateUrl:'book.html',controller:'bookCtrl'})
+		// .otherwise(redirectTo,'index.html')
+	}])
+	.controller('myCtrl', ['$scope', function($scope){
+		$scope.books = [
+			{
+				name:'NG',
+				page:89
+			},
+			{
+				name:'Vue',
+				page:99
+			},
+			{
+				name:'React',
+				page:88
+			},
+			{
+				name:'Jvid',
+				page:66
+			}
+		]
+	}])
+	.controller('bookCtrl', ['$scope','$routeParams', function($scope,$routeParams){
+		console.log($routeParams)
+		$scope.name = $routeParams.bookid;
+	}])
+</script>
+</html>

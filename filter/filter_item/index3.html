@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<ul>
+		<li ng-repeat="x in numbers">{{x | testFilter2}}</li>
+	</ul>
+</body>
+</html>
